@@ -3,6 +3,7 @@
     using UUWatchlist.Services.Interfaces;
     using UUWatchlist.Models;
     using Microsoft.Data.Sqlite;
+    using SQLite;
     public class SqlService : ISqlService
     {
         public SqlService() { }
