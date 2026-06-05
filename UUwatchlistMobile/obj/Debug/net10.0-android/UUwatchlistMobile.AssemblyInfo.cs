@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("UUwatchlistMobile")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+50c9d427d886aa502d5e23b8ca93fe4ad6845d92")]
 [assembly: System.Reflection.AssemblyProductAttribute("UUwatchlistMobile")]
 [assembly: System.Reflection.AssemblyTitleAttribute("UUwatchlistMobile")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

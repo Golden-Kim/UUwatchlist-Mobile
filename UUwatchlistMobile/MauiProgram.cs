@@ -2,6 +2,7 @@
 using UUWatchlist.Services;
 using Microsoft.Extensions.Configuration;
 using System.Reflection;
+using UUwatchlistMobile.Services;
 namespace UUwatchlistMobile
 {
     public static class MauiProgram
@@ -30,6 +31,7 @@ namespace UUwatchlistMobile
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddSingleton<YoutubeService>();
             builder.Services.AddSingleton<SqlService>();
+            builder.Services.AddSingleton<ApiKeyService>();
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();

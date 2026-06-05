@@ -1,17 +1,50 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager Navigation
+@using UUwatchlistMobile.Services
+@inject ApiKeyService KeyService
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+@if (KeyService.HasKey)
+{
+    <div class="page">
+        <div class="sidebar">
+            <NavMenu />
         </div>
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+        <main>
+            <div class="top-row px-4">
+                <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+            </div>
+
+            <article class="content px-4">
+                @Body
+            </article>
+        </main>
+    </div>
+}
+else
+{
+    <div class = "container d-flex justify-content-center align-items-center vh-100">
+        <div class=" = card p-4 shadow-lg" style=" max-width: 500px; width: 100%; margin: auto";>
+            <h3 class="text-center mb-3">Configurazione iniziale</h3>
+            <p class="text-muted text-center">Benvenuto! Inserisci la tua chiave API di Google Cloud per sbloccare l'applicazione.</p>
+            <div class = "mb-3">
+                <input type="text" class="form-control" placeholder="Incolla qui la tua API Key..." @bind="inputApiKey" />
+            </div>
+            <button class="btn btn-primary w-100" @onclick="SalvaEInizia">Salva e Inizia</button>
+        </div>
+    </div>
+
+    @code {
+    private string inputApiKey = string.Empty;
+    private void SalvaEInizia()
+    {
+        if (string.IsNullOrWhiteSpace(inputApiKey)) return;
+        
+
+        KeyService.SaveKey(inputApiKey);
+        Navigation.NavigateTo("/", forceLoad: true);
+    }
+}
+
+}

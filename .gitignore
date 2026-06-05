@@ -2,4 +2,14 @@
 # Il file gitignore è stato creato automaticamente da Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs
+appsettings.json
+# Escludi categoricamente l'output di compilazione
+bin/
+obj/
+
+# Escludi le cartelle di build specifiche delle piattaforme nativizzate
+**/bin/
+**/obj/
+
+# Escludi i dati locali di Visual Studio
+.vs/
