@@ -5,10 +5,10 @@ using UUWatchlist.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
 namespace UUWatchlist.Services
 {
-    public class YoutubeService : IYoutubeService
+    public class YoutubeService
     {
 
-        private readonly string _apyKey = "";
+        /*private readonly string _apyKey = "";
         
         public YoutubeService(IConfiguration configuration) 
         {
@@ -16,7 +16,7 @@ namespace UUWatchlist.Services
             _apyKey = configuration["YouTube:ApiKey"] ?? string.Empty;
         }
 
-        public Task<VIdeosInfo> GetLatestVideoAsync(string uploadPlaylistId)
+        public Task<VideosInfo> GetLatestVideoAsync(string uploadPlaylistId)
         {
 
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
@@ -32,7 +32,7 @@ namespace UUWatchlist.Services
 
             var response = request.ExecuteAsync();
 
-            VIdeosInfo videoInfo = new VIdeosInfo();
+            VideosInfo videoInfo = new VideosInfo();
 
             if(response != null) 
             {
@@ -45,10 +45,10 @@ namespace UUWatchlist.Services
 
 
             }
-            return Task.FromResult(videoInfo);
+            return Task.FromResult(videoInfo); 
 
 
 
-        }
+        }*/
     }
 }

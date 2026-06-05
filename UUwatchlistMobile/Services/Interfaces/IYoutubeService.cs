@@ -8,6 +8,6 @@ namespace UUWatchlist.Services.Interfaces
         /// </summary>
         /// <param name="uploadPlaylistId"></param>
         /// <returns></returns>
-        Task<VIdeosInfo> GetLatestVideoAsync(string uploadPlaylistId);
+        Task<VideosInfo> GetLatestVideoAsync(string uploadPlaylistId);
     }
 }

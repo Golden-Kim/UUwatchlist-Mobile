@@ -30,7 +30,7 @@ namespace UUwatchlistMobile
 
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddSingleton<YoutubeService>();
-            builder.Services.AddSingleton<SqlService>();
+            builder.Services.AddSingleton<DatabaseService>();
             builder.Services.AddSingleton<ApiKeyService>();
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();
