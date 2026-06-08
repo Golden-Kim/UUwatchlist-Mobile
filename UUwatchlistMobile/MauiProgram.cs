@@ -1,8 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
-using UUWatchlist.Services;
+using UUwatchlistMobile.Services;
 using Microsoft.Extensions.Configuration;
 using System.Reflection;
-using UUwatchlistMobile.Services;
 namespace UUwatchlistMobile
 {
     public static class MauiProgram

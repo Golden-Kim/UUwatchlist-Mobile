@@ -1,17 +1,17 @@
-﻿namespace UUWatchlist.Services.Interfaces
+﻿namespace UUwatchlistMobile.Services.Interfaces
 {
-    using UUWatchlist.Models;
+    using UUwatchlistMobile.Models;
     public interface IDatabaseService
     {
         Task InitializeAsync();
-        Task<List<YoutubeChannelInfo>> GetAllChannelsAsync();
-        Task<bool> AddChannelAsync(YoutubeChannelInfo channel);
-        Task<bool> UpdateChannelAsync(YoutubeChannelInfo channel);
+        Task<List<ChannelInfo>> GetAllChannelsAsync();
+        Task<bool> AddChannelAsync(ChannelInfo channel);
+        Task<bool> UpdateChannelAsync(ChannelInfo channel);
         
 
-        Task<List<VideosInfo>> ObtainAllVideosAsync();
-        Task<List<VideosInfo>> ObtainVideosPerChannelAsync(int channelId);
-        Task<bool> SaveVideoAsync(VideosInfo video);
+        Task<List<VideoInfo>> ObtainAllVideosAsync();
+        Task<List<VideoInfo>> ObtainVideosPerChannelAsync(int channelId);
+        Task<bool> SaveVideoAsync(VideoInfo video);
 
     }
 }

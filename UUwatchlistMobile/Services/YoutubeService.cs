@@ -1,9 +1,9 @@
 ﻿using Google.Apis.Services;
 using Google.Apis.YouTube.v3;
-using UUWatchlist.Models;
-using UUWatchlist.Services.Interfaces;
+using UUwatchlistMobile.Models;
+using UUwatchlistMobile.Services.Interfaces;
 using Microsoft.Extensions.Configuration;
-namespace UUWatchlist.Services
+namespace UUwatchlistMobile.Services
 {
     public class YoutubeService
     {

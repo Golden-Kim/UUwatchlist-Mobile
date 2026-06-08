@@ -1,7 +1,28 @@
 ﻿@page "/"
+@inject DatabaseService DS
+
+<button @onclick="RefreshChannels">Refresh Channels</button>
+
+@if (channels != null)
+{
+    @foreach (var c in channels)
+    {
+        <p>@c.channelId</p>
+        <p>@c.name</p>
+    }
+    
+}
+
 
 
 @code
 {
+    List<ChannelInfo> channels;
 
+    
+    public async Task RefreshChannels()
+    {
+        channels = new List<ChannelInfo>();
+        channels = await DS.GetAllChannelsAsync();
+    }
 }

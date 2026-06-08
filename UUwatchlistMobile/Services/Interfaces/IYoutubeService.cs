@@ -1,5 +1,5 @@
-﻿using UUWatchlist.Models;
-namespace UUWatchlist.Services.Interfaces
+﻿using UUwatchlistMobile.Models;
+namespace UUwatchlistMobile.Services.Interfaces
 {
     public interface IYoutubeService
     {
@@ -8,6 +8,6 @@ namespace UUWatchlist.Services.Interfaces
         /// </summary>
         /// <param name="uploadPlaylistId"></param>
         /// <returns></returns>
-        Task<VideosInfo> GetLatestVideoAsync(string uploadPlaylistId);
+        Task<VideoInfo> GetLatestVideoAsync(string uploadPlaylistId);
     }
 }

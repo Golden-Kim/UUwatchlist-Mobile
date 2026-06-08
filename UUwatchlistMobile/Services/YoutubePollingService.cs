@@ -5,8 +5,8 @@ using System.Reflection.Metadata;
 using System.ServiceModel.Syndication;
 using System.Text;
 using System.Xml;
-using UUWatchlist.Models;
-using UUWatchlist.Services;
+using UUwatchlistMobile.Models;
+using UUwatchlistMobile.Services;
 
 namespace UUwatchlistMobile.Services
 {
@@ -66,7 +66,7 @@ namespace UUwatchlistMobile.Services
             }
             try
             {
-                List<YoutubeChannelInfo> channels = await _databaseService.GetAllChannelsAsync();
+                List<ChannelInfo> channels = await _databaseService.GetAllChannelsAsync();
 
                 if (channels == null || channels.Count == 0)
                 {
@@ -96,7 +96,7 @@ namespace UUwatchlistMobile.Services
                             string videoId = ultimoVideoFeed.Id.Replace("yt:video", "");
                             string titolo = ultimoVideoFeed.Title.Text;
 
-                            var video = new VideosInfo
+                            var video = new VideoInfo
                             {
                                 idVideo = int.Parse(videoId),
                                 Title = titolo,
