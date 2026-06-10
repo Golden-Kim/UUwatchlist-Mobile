@@ -31,6 +31,8 @@ namespace UUwatchlistMobile
             builder.Services.AddSingleton<YoutubeService>();
             builder.Services.AddSingleton<DatabaseService>();
             builder.Services.AddSingleton<ApiKeyService>();
+            builder.Services.AddSingleton<YoutubePollingService>();
+            builder.Services.AddSingleton<FandomApi>();
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();
     		builder.Logging.AddDebug();

@@ -1,5 +1,6 @@
 ﻿@page "/"
 @inject DatabaseService DS
+@inject FandomApi FA
 
 <button @onclick="RefreshChannels">Refresh Channels</button>
 
@@ -7,8 +8,8 @@
 {
     @foreach (var c in channels)
     {
-        <p>@c.channelId</p>
-        <p>@c.name</p>
+        <p>@c.idArc</p> <p>@c.NameArc</p> <p>@c.typeofArc</p>
+        <br />
     }
     
 }
@@ -17,12 +18,15 @@
 
 @code
 {
-    List<ChannelInfo> channels;
+    List<ArcInfo> channels;
 
-    
+
     public async Task RefreshChannels()
     {
-        channels = new List<ChannelInfo>();
-        channels = await DS.GetAllChannelsAsync();
+        await DS.SaveArcsAsync();
+
+        
+
+
     }
 }

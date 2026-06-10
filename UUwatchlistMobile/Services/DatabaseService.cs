@@ -4,18 +4,20 @@
     using UUwatchlistMobile.Models;
     using SQLite;
     using System.Diagnostics;
+    
 
     public class DatabaseService : IDatabaseService
     {
         private SQLiteAsyncConnection _database;
         private readonly string _dbPath;
-        public DatabaseService() 
+        FandomApi _FandomApi;
+        public DatabaseService()
         {
             _dbPath = Path.Combine(FileSystem.AppDataDirectory, "UU.db");
-
+            _FandomApi = new FandomApi();
         }
 
-        public async Task InitializeAsync() 
+        public async Task InitializeAsync()
         {
             if (_database != null) return;
 
@@ -42,7 +44,7 @@
             }
         }
 
-        
+
 
         // Ottiene la lista di tutti i canali salvati nel database
         public async Task<List<ChannelInfo>> GetAllChannelsAsync()
@@ -71,11 +73,11 @@
                 if (DoesItExist != null)
                 {
                     Debug.WriteLine($"The channel with id {channel.idCreators} is already monitored.");
-                    return false; 
+                    return false;
                 }
 
                 await _database.InsertAsync(channel);
-                return true; 
+                return true;
             }
             catch (Exception ex)
             {
@@ -101,7 +103,7 @@
         }
 
 
-        
+
 
         // Ottiene tutti i video salvati ordinati dal più recente
         public async Task<List<VideoInfo>> ObtainAllVideosAsync()
@@ -138,6 +140,28 @@
         }
 
         // Salva un video se non esiste già. Ritorna TRUE se il video è nuovo, FALSE se esisteva.
+        
+
+
+
+        public async Task<List<ArcInfo>> GetAllArcsAsync()
+        {
+            await InitializeAsync();
+            try
+            {
+                return await _database!.Table<ArcInfo>().ToListAsync();
+                
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in recovering arcs info: {ex.Message}");
+                return new List<ArcInfo>();
+            }
+
+
+
+
+        }
         public async Task<bool> SaveVideoAsync(VideoInfo video)
         {
             await InitializeAsync();
@@ -163,11 +187,33 @@
                 return false;
             }
         }
+        public async Task SaveArcsAsync() 
+        {
+            List<ArcInfo> ArcsToSave = new List<ArcInfo>();
+            await InitializeAsync();
+            try
+            {
+                ArcsToSave = await _FandomApi.GetArcPagesAsync();
+                foreach (var a in ArcsToSave) 
+                {
+                    bool exists = await _database!.Table<ArcInfo>()
+                                                 .Where(ar => ar.idArc == a.idArc)
+                                                 .FirstOrDefaultAsync() != null;
+                    if (exists == false)
+                    {
+                        await _database.InsertAsync(a);
+                    }
+
+                    exists = true;
+                }
 
 
-
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error in recovering arcs info: {ex.Message}");
+            }
         
-
-
+        }
     }
 }

@@ -2,11 +2,7 @@
 namespace UUwatchlistMobile.Models;
 
 
-    public enum ArcType
-    {
-        Individual,
-        Major
-    }
+    
 
     [Table("tblVideos")]
     public class VideoInfo
@@ -39,7 +35,7 @@ namespace UUwatchlistMobile.Models;
         [PrimaryKey]
         public int idArc { get; set; }
         public string NameArc { get; set; }
-        public ArcType typeofArc { get; set; }
+        public string typeofArc { get; set; }
     }
 
 

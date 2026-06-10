@@ -13,5 +13,9 @@
         Task<List<VideoInfo>> ObtainVideosPerChannelAsync(int channelId);
         Task<bool> SaveVideoAsync(VideoInfo video);
 
+
+        Task<List<ArcInfo>> GetAllArcsAsync();
+        Task SaveArcsAsync();
+
     }
 }
