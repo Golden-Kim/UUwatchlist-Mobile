@@ -4,26 +4,21 @@
 
 <button @onclick="RefreshChannels">Refresh Channels</button>
 
-@if (channels != null)
-{
-    @foreach (var c in channels)
-    {
-        <p>@c.idArc</p> <p>@c.NameArc</p> <p>@c.typeofArc</p>
-        <br />
-    }
-    
-}
+
 
 
 
 @code
 {
-    List<ArcInfo> channels;
+    List<VideoInfo> videos;
+
 
 
     public async Task RefreshChannels()
     {
-        await DS.SaveArcsAsync();
+        videos = new List<VideoInfo>();
+
+        videos = await FA.GetVideosAsync();
 
         
 

@@ -101,8 +101,7 @@ namespace UUwatchlistMobile.Services
                                 idVideo = int.Parse(videoId),
                                 Title = titolo,
                                 ThumbnailUrl = $"https://img.youtube.com/vi/{videoId}/hqdefault.jpg",
-                                PublishedDate = ultimoVideoFeed.PublishDate.DateTime,
-                                Description = ultimoVideoFeed.Summary.Text,
+                                PublishedDate = ultimoVideoFeed.PublishDate.ToString(),
                                 POVId = c.idCreators,
                                 ArcId = 0
                             };

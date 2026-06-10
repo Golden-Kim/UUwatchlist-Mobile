@@ -11,10 +11,11 @@ namespace UUwatchlistMobile.Models;
         public int idVideo { get; set; }
         public string Title { get; set; }
         public string ThumbnailUrl { get; set; }
-        public DateTime PublishedDate { get; set; }
-        public string Description { get; set; }
+        public string PublishedDate { get; set; }
+        public string VideoUrl {  get; set; }
         public int POVId { get; set; }
         public int? ArcId { get; set; }
+        public int season {  get; set; }
         
 
     }
